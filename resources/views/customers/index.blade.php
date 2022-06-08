@@ -29,7 +29,7 @@
                 @foreach ($customers as $key => $customer)
                     <tr class="text-center">
                         <td><b>{{ ++$key }}</b></td>
-                      <td>  {{ $customer->areas->name ?? 'null'  }}</td>
+                      <td>  {{ optional($customer->area)->name ?? 'Undefiend' }}</td>
                         <td>{{ $customer->code ?? 'null' }}</td>
                         <td>{{ $customer->name ?? 'null' }}</td>
                         <td>{{ $customer->age ?? 'null' }}</td>

@@ -11,6 +11,27 @@
  <body class="container">
     @include('layouts.top-navbar')
     
+
+    @if (session('status'))
+    <div class="row">
+        <div class="col-12 alert alert-success text-center" role="alert">
+            {{ session('status') }}
+        </div>
+    </div>
+@endif
+
+@if(session('errorMsg'))
+<div class="alert alert-danger">
+{{ session('errorMsg') }}
+</div> 
+@endif
+
+
+
+
+
+
+
 <Div>
     @yield('content')
 </Div>

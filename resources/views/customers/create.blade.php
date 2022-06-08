@@ -25,25 +25,11 @@
 
                 <div class="card-body">
 
-                    @if ($errors->any())
-                        <div class="row">
-                            <div class="col-12 alert alert-danger p-1 m-0">
-                                <ul class="g-0">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    @endif
-
-               
-
                     <div class="row prices p-3">
                         <div class="row col-md-12">
                             <div class="col-md-2 col-12 g-0" style="padding-right:5px!important">
                                 <label for="code" class="form-label">Code</label>
-                                <input type="text" min="0" class="form-control" name="code[]" id="code" placeholder="code"
+                                <input type="number" min="0" class="form-control" name="code[]" id="code" placeholder="code"
                                 value="{{ old('code[]') }}">
                             </div>
 
@@ -55,7 +41,7 @@
 
                             <div class="col-12 col-md-2 g-0" style="padding-right:5px!important">
                                 <label for="age" class="form-label">Age</label>
-                                <input type="age" min="0" class="form-control" name="age[]" id="name" placeholder="name"
+                                <input type="number" min="0" class="form-control" name="age[]" id="age" placeholder="Customer Age"
                                 value="{{ old('age[]') }}">
                             </div>
 
@@ -90,7 +76,7 @@
 <div class="row pricesCopy p-3" style="display: none;">
     <div class="row col-md-12">
         <div class="col-md-2 col-12 g-0" style="padding-right:5px!important">
-            <input type="text" min="0" class="form-control" name="code[]" id="code" placeholder="code"
+            <input type="number" min="0" class="form-control" name="code[]" id="code" placeholder="code"
             value="{{ old('code[]') }}">
         </div>
 
@@ -100,7 +86,7 @@
         </div>
 
         <div class="col-12 col-md-2 g-0" style="padding-right:5px!important">
-            <input type="age" min="0" class="form-control" name="age[]" id="name" placeholder="name"
+            <input type="number" min="0" class="form-control" name="age[]" id="name" placeholder="Customer Age"
             value="{{ old('age[]') }}">
         </div>
 
@@ -114,7 +100,7 @@
         </div>
 
         <div class="col-12 col-md-1 d-flex align-items-end g-0">
-            <a href="javascript:void(0)" class="btn btn-danger addMore"><span class="glyphicon glyphicon glyphicon-plus"
+            <a href="javascript:void(0)" class="btn btn-danger remove"><span class="glyphicon glyphicon glyphicon-plus"
                     aria-hidden="true"></span> Remove</a>
         </div>
 
@@ -126,7 +112,6 @@
 
 @push('scripts')
     <script type="text/javascript">
-        // Upload Image Preview
         $(document).ready(function (e) {
             //add more fields group
             $(".addMore").click(function(){
