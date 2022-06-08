@@ -2,31 +2,31 @@
 
 namespace App\Models;
 
-use App\Models\Customer;
+use App\Models\Area;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Area extends Model
+class Customer extends Model
 {
     use HasFactory ,SoftDeletes;
 
     protected $fillable = [
+        'area_id',
+        'code',
         'name',
-        'code'
+        'age',
+        'is_active',
+        
     ];
-    public function customers()
+
+    public function areas()
     {
-        return $this->hasMany(Customer::class);
+        return $this->belongsTo(Area::class);
     }
 
     public function scopeOrderByIdDescending($query)
     {
         return $query->orderBy('id', 'DESC');
-    }
-
-    public function scopeFilterIsActive($query)
-    {
-        return $query->where('is_active', 1);
     }
 }

@@ -9,7 +9,7 @@
           <a class="nav-link" href="#"> Area <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Customar</a>
+          <a class="nav-link" href="{{ route('customers.index') }}">Customar</a>
         </li>
         {{-- <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
